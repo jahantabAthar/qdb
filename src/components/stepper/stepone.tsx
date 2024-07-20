@@ -8,12 +8,11 @@ import { message, Upload } from 'antd';
 const { Dragger } = Upload;
 
 const { TextArea } = Input;
-const StepOne: React.FC = () => {
+const StepOne: React.FC = ({setProgress, setCurrent , current}) => {
   const [textEnglish, setTextEnglish] = useState('');
   const [textArabic, setTextArabic] = useState('');
   const [uploadStatus, setUploadStatus] = useState('');
   const [fileName, setFileName] = useState('');
-
   
 
 const props = {
@@ -33,9 +32,14 @@ const props = {
     console.log('Dropped files', e.dataTransfer.files);
   },
 };
-
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setCurrent(current + 1);
+  setProgress((current + 2) * 20);
+};
   return (
     <>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <div className="font-bold">Company Detail</div>
         <div className="min-h-30 bg-slate-200 rounded mt-5 p-5 text-sm">
@@ -86,6 +90,7 @@ const props = {
                 maxLength={1000} 
                 value={textEnglish} 
                 onChange={(e) => setTextEnglish(e.target.value)}
+                required
               />
               <div className="text-right">
                 {textEnglish.length}/1000
@@ -100,6 +105,7 @@ const props = {
                 maxLength={1000} 
                 value={textArabic} 
                 onChange={(e) => setTextArabic(e.target.value)}
+                required
               />
               <div className="text-right">
                 {textArabic.length}/1000
@@ -134,9 +140,18 @@ const props = {
             </div>
           )}
         </div>
+        <div className='flex items-end justify-end mt-24'>
+              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                Save & Exit
+              </button>
+
+              <button type="Submit" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2" >
+                Next
+              </button>
+        </div>        
         </div>
       </div>
-
+      </form>
     </>
   );
 };

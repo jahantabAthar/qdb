@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, Input, Select, Space } from 'antd';
 const { Search } = Input;
-const StepTwo: React.FC = () => {
+const StepTwo: React.FC = ({next}) => {
     const [divs, setDivs] = useState([{ id: 0 }]);
 
     const addDiv = () => {
@@ -84,7 +84,16 @@ const StepTwo: React.FC = () => {
             <Link className="block flex-shrink-0" href="#" onClick={(e) => { e.preventDefault(); addDiv(); }}>
                 + Add another representative
             </Link>
-          </div>                          
+          </div>  
+          <div className='flex items-end justify-end mt-24'>
+              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                Save & Exit
+              </button>
+
+              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2" onClick={next}>
+                Next
+              </button>
+        </div>                           
       </div>
     </>
   );

@@ -16,34 +16,6 @@ interface StepperProps {
   setProgress: (value: number) => 0;
 }
 
-const steps = [
-  {
-    title: 'Company Details',
-    content: <StepOne />,
-    icon: <FolderAddOutlined className='stepicon' style={{ fontSize: '80%'}}/>
-  },
-  {
-    title: 'Contact Details',
-    content: <StepTwo />,
-    icon: <DiffOutlined style={{ fontSize: '80%'}}/>
-  },
-  {
-    title: 'Documents',
-    content: <StepThree />,
-    icon: <FileAddOutlined style={{ fontSize: '80%'}}/>
-  },
-  {
-    title: 'Awards & Certifications',
-    content: <StepFour />,
-    icon: <TrophyOutlined style={{ fontSize: '80%'}}/>
-  },
-  {
-    title: 'Verification',
-    content: <StepFive />,
-    icon: <ScheduleOutlined style={{ fontSize: '80%'}}/>
-  },
-];
-
 const Index: React.FC<StepperProps> = ({ setProgress }) => {
   const [current, setCurrent] = useState(0);
 
@@ -51,6 +23,35 @@ const Index: React.FC<StepperProps> = ({ setProgress }) => {
     setCurrent(current + 1);
     setProgress((current + 2) * 20);
   };
+  
+const steps = [
+  {
+    title: 'Company Details',
+    content: <StepOne setProgress={setProgress} setCurrent={setCurrent} current={current}/>,
+    icon: <FolderAddOutlined className='stepicon' style={{ fontSize: '80%'}}/>
+  },
+  {
+    title: 'Contact Details',
+    content: <StepTwo next={next}/>,
+    icon: <DiffOutlined style={{ fontSize: '80%'}}/>
+  },
+  {
+    title: 'Documents',
+    content: <StepThree next={next}/>,
+    icon: <FileAddOutlined style={{ fontSize: '80%'}}/>
+  },
+  {
+    title: 'Awards & Certifications',
+    content: <StepFour next={next}/>,
+    icon: <TrophyOutlined style={{ fontSize: '80%'}}/>
+  },
+  {
+    title: 'Verification',
+    content: <StepFive next={next}/>,
+    icon: <ScheduleOutlined style={{ fontSize: '80%'}}/>
+  },
+];
+
   const onChange = (value: number, curr: number) => {
     if(value < current){
       setCurrent(value);
@@ -85,7 +86,7 @@ const Index: React.FC<StepperProps> = ({ setProgress }) => {
           <div className='contentDiv lg:overflow-auto'>
             {steps[current].content}
           </div>
-          <div className='mt-24 float-right'>
+          {/* <div className='mt-24 float-right'>
             {current < steps.length - 1 && (
               <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2">
                 Save & Exit
@@ -102,7 +103,7 @@ const Index: React.FC<StepperProps> = ({ setProgress }) => {
                 Submit for Verification
               </button>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

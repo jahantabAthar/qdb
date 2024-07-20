@@ -2,14 +2,13 @@
 import React from "react";
 import { BorderOuterOutlined, BellOutlined } from '@ant-design/icons';
 
-const StepFive: React.FC = () => {
+const StepFive: React.FC = ({next}) => {
   return (
     <>
-      
-      <div>
+      <div className="min-h-150">
           <div><span className="font-bold">Verification</span></div>
             <div className="justify-center min-h-200 max-w-4xl flex flex-col items-center mt-30">
-            <div className="text-center w-10/12 justify-center items-center">
+            <div className="text-center w-8/12 justify-center items-center">
             <div className="flex items-center justify-center mb-5">
               <div className=" bg-yellow-100 rounded-full p-2 h-10 w-10  justify-center">
                 <BorderOuterOutlined />

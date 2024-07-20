@@ -27,7 +27,7 @@ const props: UploadProps = {
 };
 
 
-const StepFour: React.FC = () => {
+const StepFour: React.FC = ({next}) => {
   return (
     <>
       <div className="min-w-47.5 min-h-120 max-w-4xl flex flex-col">
@@ -43,6 +43,15 @@ const StepFour: React.FC = () => {
             </p>
           </Dragger>
         </div>
+        <div className='flex items-end justify-end mt-24'>
+              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                Save & Exit
+              </button>
+
+              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2" onClick={next}>
+                Next
+              </button>
+        </div>   
       </div>
     </>
   );
