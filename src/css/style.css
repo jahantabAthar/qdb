@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply relative bg-slate-200 font-sans text-slate-600 text-base font-normal;
+}
