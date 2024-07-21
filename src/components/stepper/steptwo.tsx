@@ -22,7 +22,7 @@ const StepTwo: React.FC<StepProps> = ({ handleSubmit }) => {
         <>
             <form onSubmit={handleSubmit}>
                 <div className="w-full min-h-120 flex flex-col">
-                    <div className="font-bold">Company Detail</div>
+                    <div className="font-bold">Contact Detail</div>
                     <div className="mt-3 text-sm">Please provide the necessary contact information.</div>
                     {divs.map((div) => (
                         <div key={div.id} id={`mainDiv${div.id}`} className="relative overflow-x-auto shadow-md rounded mt-10">
