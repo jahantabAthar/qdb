@@ -33,17 +33,19 @@ const StepTwo: React.FC<StepProps> = ({ handleSubmit }) => {
                                             <div className="flex justify-between items-center">
                                                 <span>Representative {div.id + 1}</span>
                                                 <div>
-                                                    <Image
-                                                        width={16}
-                                                        height={16}
-                                                        src={"/images/remove.png"}
-                                                        style={{
-                                                            width: "auto",
-                                                            height: "auto",
-                                                        }}
-                                                        alt="remove"
-                                                        onClick={() => removeDiv(div.id)}
-                                                    />
+                                                    <Link className="font-medium" href="/">
+                                                        <Image
+                                                            width={16}
+                                                            height={16}
+                                                            src={"/images/remove.png"}
+                                                            style={{
+                                                                width: "auto",
+                                                                height: "auto",
+                                                            }}
+                                                            alt="remove"
+                                                            onClick={() => removeDiv(div.id)}
+                                                        />
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </th>
