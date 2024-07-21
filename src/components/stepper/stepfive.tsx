@@ -2,7 +2,7 @@
 import React from "react";
 import { BorderOuterOutlined, BellOutlined } from '@ant-design/icons';
 
-const StepFive: React.FC = ({next}) => {
+const StepFive: React.FC = () => {
   return (
     <>
       <div className="min-h-150">
@@ -24,12 +24,11 @@ const StepFive: React.FC = ({next}) => {
               <BellOutlined className="pr-5" /> You will receive the notification once the review is complete.
             </div>
             <div className="flex items-center justify-center mt-5 text-sm">
-              <div className="secondary-500 rounded-full p-3 text-white pl-10 pr-10">Go back to companies</div>
+              <div className="bg-secondary-500 rounded-full p-3 text-white pl-10 pr-10">Go back to companies</div>
             </div>
           </div>
           </div>
       </div>
-
     </>
   );
 };

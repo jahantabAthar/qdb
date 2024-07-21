@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
@@ -99,6 +98,12 @@ const config: Config = {
         203: "50.75rem",
         230: "57.5rem",
         242.5: "60.625rem",
+      },
+      colors: {
+        'secondary-100': "#e4f2f0",
+        'secondary-200': "#8bc7bf",
+        'secondary-500': "#009483",
+        'secondary-600': "#008776",
       },
     },
   },

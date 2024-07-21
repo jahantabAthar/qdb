@@ -5,3 +5,10 @@
 body {
     @apply relative bg-slate-200 font-sans text-slate-600 text-base font-normal;
 }
+.ant-steps-item-tail {
+  display: none !important;
+}
+.ant-steps-item-content{
+  padding-top: 5px;
+  padding-left: 5px;
+}

@@ -1,120 +1,31 @@
 "use client";
 import React from "react";
-import { CloudUploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { message, Upload } from 'antd';
-const { Dragger } = Upload;
+import Buttons from '@/components/common/Buttons'
+import FileUpload from '@/components/common/Uploader'
+interface StepProps {
+  handleSubmit: () => void;
+}
+const sections = ['Trade License','Establishment Card', 'MOF Clasification','Court clearance certificate','Manpower list from misistory of Labour','Latest audited balance Sheet'];
 
-
-const props: UploadProps = {
-  name: 'file',
-  multiple: true,
-  action: '',
-  onChange(info) {
-    const { status } = info.file;
-    if (status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (status === 'error') {
-     // message.success(`${info.file.name} file uploaded successfully.`);
-    } 
-    // else if (status === 'error') {
-    //   message.error(`${info.file.name} file upload failed.`);
-    // }
-  },
-  onDrop(e) {
-    console.log('Dropped files', e.dataTransfer.files);
-  },
-};
-
-
-const StepThree: React.FC = ({next}) => {
+const StepThree: React.FC<StepProps> = ({handleSubmit}) => {
   return (
     <>
+    <form onSubmit={handleSubmit}>
       <div className=" min-h-120 flex flex-col">
         <div className="font-bold">Documents</div>
-        <div className="mt-3 text-sm font-bold">1: Trade License:</div>
-        <div className="mt-5">
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined className="cloudicon"/>
-            </p>
-            <p className="ant-upload-text"><span className="text-green-700 font-bold">Click to upload</span> or drap and drop</p>
-            <p className="ant-upload-hint">
-              PDF, DOC, XLXS or JPG
-            </p>
-          </Dragger>
-        </div>
-        <div className="mt-3 text-sm font-bold">2: Establishment Card:</div>
-        <div className="mt-5">
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined className="cloudicon"/>
-            </p>
-            <p className="ant-upload-text"><span className="text-green-700 font-bold">Click to upload</span> or drap and drop</p>
-            <p className="ant-upload-hint">
-              PDF, DOC, XLXS or JPG
-            </p>
-          </Dragger>
-        </div>
-        <div className="mt-3 text-sm font-bold">3: MOF Clasification:</div>
-        <div className="mt-5">
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined className="cloudicon"/>
-            </p>
-            <p className="ant-upload-text"><span className="text-green-700 font-bold">Click to upload</span> or drap and drop</p>
-            <p className="ant-upload-hint">
-              PDF, DOC, XLXS or JPG
-            </p>
-          </Dragger>
-        </div>
-        <div className="mt-3 text-sm font-bold">4: Court clearance certificate:</div>
-        <div className="mt-5">
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined className="cloudicon"/>
-            </p>
-            <p className="ant-upload-text"><span className="text-green-700 font-bold">Click to upload</span> or drap and drop</p>
-            <p className="ant-upload-hint">
-              PDF, DOC, XLXS or JPG
-            </p>
-          </Dragger>
-        </div>
-        <div className="mt-3 text-sm font-bold">5: Manpower list from misistory of Labour:</div>
-        <div className="mt-5">
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined className="cloudicon"/>
-            </p>
-            <p className="ant-upload-text"><span className="text-green-700 font-bold">Click to upload</span> or drap and drop</p>
-            <p className="ant-upload-hint">
-              PDF, DOC, XLXS or JPG
-            </p>
-          </Dragger>
-        </div>
-        <div className="mt-3 text-sm font-bold">6: Latest audited balance Sheet:</div>
-        <div className="mt-5">
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined className="cloudicon"/>
-            </p>
-            <p className="ant-upload-text"><span className="text-green-700 font-bold">Click to upload</span> or drap and drop</p>
-            <p className="ant-upload-hint">
-              PDF, DOC, XLXS or JPG
-            </p>
-          </Dragger>
-        </div>
-        <div className='flex items-end justify-end mt-24'>
-              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2">
-                Save & Exit
-              </button>
-
-              <button type="button" className="text-white secondary-500 hover:secondary-600 rounded-full text-sm px-5 py-2.5 me-2 mb-2" onClick={next}>
-                Next
-              </button>
-        </div>   
+        {sections.map((section, index) => {
+          return (
+            <>
+              <div className="mt-5 text-sm font-bold">{index + 1}: {section}</div>
+              <div className="mt-5">
+                <FileUpload />
+              </div>
+            </>
+          );
+        })}
+        <Buttons /> 
       </div>
+      </form>
     </>
   );
 };
