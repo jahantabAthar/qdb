@@ -18,7 +18,6 @@ interface StepperProps {
 const Index: React.FC<StepperProps> = ({ setProgress }) => {
   const [current, setCurrent] = useState(0);
   const handleSubmit = (e) => {
-    e.preventDefault();
     setCurrent(current + 1);
     setProgress((current + 2) * 20);
   };
