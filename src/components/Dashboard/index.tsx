@@ -8,7 +8,7 @@ const Index: React.FC = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-3xl p-4 pl-50 pr-50">
-        <div className="rounded-md  bg-white px-5 pb-5 pt-7.5 min-h-44 shadow-2">
+        <div className="rounded-md  bg-white px-5 pb-5 pt-7.5 min-h-44 shadow">
           <div className="flex flex-row">
             <div className="min-w-30 max-w-4xl">
                   <div className="text-lg mb-5 flex-none">Complete Your <b>Contractor Company</b> <span className="text-cyan-700"><b>Setup</b></span></div>
