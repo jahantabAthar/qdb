@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Input, Space } from 'antd';
-import Buttons from '@/components/common/Buttons'
+import Button from '@/components/common/Buttons'
 interface StepProps {
     handleSubmit: () => void;
 }
@@ -91,7 +91,10 @@ const StepTwo: React.FC<StepProps> = ({ handleSubmit }) => {
                             + Add another representative
                         </Link>
                     </div>
-                    <Buttons />
+                    <div className='flex items-end justify-end mt-24'>
+                        <Button name={'Save & Exit'} type={'button'}/>
+                        <Button name={'Next'} type={'submit'}/>
+                    </div>
                 </div>
             </form>
         </>

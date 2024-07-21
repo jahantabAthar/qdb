@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Buttons from '@/components/common/Buttons'
+import Button from '@/components/common/Buttons'
 import FileUpload from '@/components/common/Uploader'
 interface StepProps {
   handleSubmit: () => void;
@@ -14,7 +14,10 @@ const StepFour: React.FC<StepProps> = ({ handleSubmit }) => {
           <div className="mt-5">
             <FileUpload />
           </div>
-          <Buttons />
+          <div className='flex items-end justify-end mt-24'>
+              <Button name={'Save & Exit'} type={'button'}/>
+              <Button name={'Next'} type={'submit'}/>
+          </div>
         </div>
       </form>
     </>

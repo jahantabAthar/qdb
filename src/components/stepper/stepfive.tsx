@@ -20,7 +20,7 @@ const StepFive: React.FC = () => {
             <div className="text-sm">
               Our team will review your details to ensure everything is accurate and complete. This process typically takes 1-3 business days.
             </div>
-            <div className="flex items-center justify-center p-3 bg-slate-200 rounded mt-5 text-sm text-center">
+            <div className="flex items-center justify-center p-3 bg-slate-100 rounded mt-5 text-sm text-center">
               <BellOutlined className="pr-5" /> You will receive the notification once the review is complete.
             </div>
             <div className="flex items-center justify-center mt-5 text-sm">

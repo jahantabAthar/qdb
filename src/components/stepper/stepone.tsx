@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Input, Radio } from 'antd';
 import { FileImageOutlined } from '@ant-design/icons';
 
-import Buttons from '@/components/common/Buttons';
+import Button from '@/components/common/Buttons';
 import FileUpload from '@/components/common/Uploader';
 
 interface StepProps {
@@ -93,7 +93,10 @@ const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
               <FileImageOutlined className="ml-5" /><label className="ms-2">Select an image that showcases your work.</label>
             </div>
             <FileUpload />
-            <Buttons />
+            <div className='flex items-end justify-end mt-24'>
+              <Button name={'Save & Exit'} type={'button'}/>
+              <Button name={'Next'} type={'submit'}/>
+            </div>
           </div>
         </div>
       </Form>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply relative bg-slate-200 font-sans text-slate-600 text-base font-normal;
+    @apply relative bg-slate-100 font-sans text-slate-600 text-base font-normal;
 }
 .ant-steps-item-tail {
   display: none !important;
