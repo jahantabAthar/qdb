@@ -12,3 +12,6 @@ body {
   padding-top: 5px;
   padding-left: 5px;
 }
+.ant-steps-item:last-child{
+  border: 0 !important;
+}
