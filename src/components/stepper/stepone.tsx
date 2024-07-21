@@ -23,7 +23,7 @@ const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
       >
         <div className="flex flex-col">
           <div className="font-bold">Company Detail</div>
-          <div className="min-h-30 bg-slate-200 rounded mt-5 p-5 text-sm">
+          <div className="min-h-30 bg-slate-100 rounded mt-5 p-5 text-sm">
             <div className="flex flex-row justify-between">
               <div className="flex flex-col">
                 <div className="text-slate-500 pb-3">Company Name (EN)</div>
@@ -55,7 +55,7 @@ const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
             </Form.Item>
           <div className="flex flex-row space-x-8">
             <div className="font-bold mt-8">Description:</div>
-            <div className="font-bold pt-1 pb-1 mt-7 pl-5 pr-5 rounded-full bg-slate-300">AI generator</div>
+            <div className="font-bold pt-2 pb-2 mt-6 pl-5 pr-5 rounded-full bg-slate-200 ">AI generator</div>
           </div>
           <div className="flex flex-row space-x-8 mt-8">
             <div className="w-full">

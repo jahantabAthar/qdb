@@ -34,7 +34,7 @@ const Uploader = () => {
         {uploadStatus !== 'done' ? (
           <Dragger {...props}>
             <p className="ant-upload-drag-icon">
-              <CloudUploadOutlined  style={{ fontSize: '16px', color: '#008776' }} className=" bg-secondary-200 p-4 rounded-full" />
+              <CloudUploadOutlined  style={{ fontSize: '16px', color: '#008776' }} className=" bg-secondary-100 p-4 rounded-full" />
             </p>
             <p className="ant-upload-text">
               <span className="text-green-700 font-bold">Click to upload</span> or drag and drop

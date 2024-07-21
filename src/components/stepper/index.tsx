@@ -62,7 +62,7 @@ const steps = [
   return (
     <>
       <div className="flex min-h-80 ">
-        <div className="w-4/12 flex-col rounded-md bg-white pb-5 pt-7.5 mt-5 mr-5 shadow-2 items-center shadow">
+        <div className="w-4/12 flex-col rounded-md bg-white pb-5 pt-7.5 mt-5 mr-5 items-center shadow">
           <Steps direction="vertical" current={current} onChange={onChange} >
             {steps.map((step, index) => {
               const iconClasses = [
