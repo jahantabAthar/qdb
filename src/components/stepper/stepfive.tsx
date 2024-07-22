@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { BorderOuterOutlined, BellOutlined } from '@ant-design/icons';
+import Button from '@/components/common/Buttons'
 
 const StepFive: React.FC = () => {
   return (
     <>
-      <div className="min-h-150">
+      <div className="w-full min-h-130">
           <div><span className="font-bold">Verification</span></div>
             <div className="justify-center min-h-200 max-w-4xl flex flex-col items-center mt-30">
             <div className="text-center w-8/12 justify-center items-center">
@@ -24,7 +25,7 @@ const StepFive: React.FC = () => {
               <BellOutlined className="pr-5" /> You will receive the notification once the review is complete.
             </div>
             <div className="flex items-center justify-center mt-5 text-sm">
-              <div className="bg-secondary-500 rounded-full p-3 text-white pl-10 pr-10">Go back to companies</div>
+              <Button name={'Go back to companies'} type={'button'}/>
             </div>
           </div>
           </div>
