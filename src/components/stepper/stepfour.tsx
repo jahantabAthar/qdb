@@ -14,7 +14,7 @@ const StepFour: React.FC<StepProps> = ({ handleSubmit }) => {
           <div className="mt-5">
             <FileUpload />
           </div>
-          <div className='flex items-end justify-end mt-24'>
+          <div className='flex items-end justify-end mt-36'>
               <Button name={'Save & Exit'} type={'button'}/>
               <Button name={'Next'} type={'submit'}/>
           </div>
