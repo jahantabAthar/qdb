@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Steps } from 'antd';
 import StepOne from '@/components/stepper/stepone';
 import StepTwo from '@/components/stepper/steptwo';
@@ -17,14 +17,48 @@ interface StepperProps {
 
 const Index: React.FC<StepperProps> = ({ setProgress }) => {
   const [current, setCurrent] = useState(0);
+  const [items, setItems] = useState('');
+  const [formData, setFormData] = useState([]);
   const handleSubmit = (e) => {
     setCurrent(current + 1);
     setProgress((current + 2) * 20);
   };
+  const uploadFile = (filename: string, path: string) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [filename]: path
+    }));
+  }
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  useEffect(() => {
+    const storeData = JSON.parse(localStorage.getItem('data'));
+    if (storeData) {
+      setItems(storeData);
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (formData && Object.keys(formData).length > 0) {
+      localStorage.setItem('data', JSON.stringify(formData));
+      const storeData = JSON.parse(localStorage.getItem('data'));
+      if (storeData) {
+        setItems(storeData);
+      }
+    }
+  }, [formData]);
+  
+
 const steps = [
   {
     title: 'Company Details',
-    content: <StepOne handleSubmit={handleSubmit} />,
+    content: <StepOne handleSubmit={handleSubmit} handleChange={handleChange} items={items} uploadFile={uploadFile}/>,
     icon: <FolderAddOutlined className='stepicon' style={{ fontSize: '80%'}}/>
   },
   {
@@ -75,7 +109,7 @@ const steps = [
               
               return (
                 <Step
-                  style={{ 'padding-left': '40px','padding-bottom':'20px' }}
+                  style={{ 'paddingLeft': '40px','paddingBottom':'20px' }}
                   key={index}
                   title={step.title}
                   className='mb-5 border-b-2 border-slate-300 pl-50'

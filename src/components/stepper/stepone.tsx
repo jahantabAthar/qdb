@@ -10,10 +10,8 @@ interface StepProps {
   handleSubmit: () => void;
 }
 
-const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
-  const [textEnglish, setTextEnglish] = useState('');
-  const [textArabic, setTextArabic] = useState('');
-
+const StepOne: React.FC<StepProps> = ({ handleSubmit, handleChange, items, uploadFile }) => {
+  
   return (
     <>
       <Form
@@ -62,13 +60,13 @@ const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
               <label className="font-bold"><span className="text-red-600">* </span>English</label>
               <div className="mt-5">
                 <Form.Item
-                  name="English"
+                 
                   rules={[{ required: true, message: 'Required' }]}
                 >
-                  <Input.TextArea rows={4} maxLength={1000} onChange={(e) => setTextEnglish(e.target.value)} />
+                  <Input.TextArea  name="englishTxt" rows={4} maxLength={1000} value={items?.englishTxt || ''} onChange={handleChange} />
                 </Form.Item>
                 <div className="text-right">
-                  {textEnglish.length}/1000
+                  {items.englishTxt?.length ?? 0}/1000
                 </div>
               </div>
             </div>
@@ -76,13 +74,12 @@ const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
               <label className="font-bold"><span className="text-red-600">* </span>Arabic</label>
               <div className="mt-5">
                 <Form.Item
-                  name="Arabic"
                   rules={[{ required: true, message: 'Required' }]}
                 >
-                  <Input.TextArea rows={4} maxLength={1000} onChange={(e) => setTextArabic(e.target.value)} />
+                  <Input.TextArea rows={4} name="arabicTxt" maxLength={1000} value={items.arabicTxt? items.arabicTxt:''} onChange={handleChange} />
                 </Form.Item>
                 <div className="text-right">
-                  {textArabic.length}/1000
+                  {items.arabicTxt?.length ?? 0}/1000
                 </div>
               </div>
             </div>
@@ -92,7 +89,7 @@ const StepOne: React.FC<StepProps> = ({ handleSubmit }) => {
             <div className="flex items-center bg-slate-100 w-full h-20 rounded">
               <FileImageOutlined className="ml-5" /><label className="ms-2">Select an image that showcases your work.</label>
             </div>
-            <FileUpload />
+            <FileUpload fileName={'PP'} uploadFile={uploadFile} items={items}/>
             <div className='flex items-end justify-end mt-24'>
               <Button name={'Save & Exit'} type={'button'}/>
               <Button name={'Next'} type={'submit'}/>
