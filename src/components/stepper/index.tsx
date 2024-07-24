@@ -23,12 +23,7 @@ const Index: React.FC<StepperProps> = ({ setProgress }) => {
     setCurrent(current + 1);
     setProgress((current + 2) * 20);
   };
-  const uploadFile = (filename: string, path: string) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [filename]: path
-    }));
-  }
+  
   const handleChange = (e) => {
     const {name, value} = e.target;
     setFormData((prevState) => ({
@@ -37,28 +32,13 @@ const Index: React.FC<StepperProps> = ({ setProgress }) => {
     }));
   };
 
-  useEffect(() => {
-    const storeData = JSON.parse(localStorage.getItem('data'));
-    if (storeData) {
-      setItems(storeData);
-    }
-  }, []);
   
-  useEffect(() => {
-    if (formData && Object.keys(formData).length > 0) {
-      localStorage.setItem('data', JSON.stringify(formData));
-      const storeData = JSON.parse(localStorage.getItem('data'));
-      if (storeData) {
-        setItems(storeData);
-      }
-    }
-  }, [formData]);
   
 
 const steps = [
   {
     title: 'Company Details',
-    content: <StepOne handleSubmit={handleSubmit} handleChange={handleChange} items={items} uploadFile={uploadFile}/>,
+    content: <StepOne handleSubmit={handleSubmit} handleChange={handleChange}/>,
     icon: <FolderAddOutlined className='stepicon' style={{ fontSize: '80%'}}/>
   },
   {
