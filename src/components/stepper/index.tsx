@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Steps } from 'antd';
 import StepOne from '@/components/stepper/stepone';
 import StepTwo from '@/components/stepper/steptwo';
@@ -17,28 +17,15 @@ interface StepperProps {
 
 const Index: React.FC<StepperProps> = ({ setProgress }) => {
   const [current, setCurrent] = useState(0);
-  const [items, setItems] = useState('');
-  const [formData, setFormData] = useState([]);
   const handleSubmit = (e) => {
     setCurrent(current + 1);
     setProgress((current + 2) * 20);
   };
-  
-  const handleChange = (e) => {
-    const {name, value} = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  
-  
 
 const steps = [
   {
     title: 'Company Details',
-    content: <StepOne handleSubmit={handleSubmit} handleChange={handleChange}/>,
+    content: <StepOne handleSubmit={handleSubmit} />,
     icon: <FolderAddOutlined className='stepicon' style={{ fontSize: '80%'}}/>
   },
   {
